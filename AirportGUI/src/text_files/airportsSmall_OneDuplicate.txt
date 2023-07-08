@@ -1,0 +1,6 @@
+ANB	33.58	85.85	Anniston	AL
+HSV	34.65	86.77	Huntsville	AL
+MXF	32.38	86.37	MaxwellAFB	AL
+CSG	32.52	84.93	Columbus	GA
+HSV	34.65	86.77	Huntsville	AL
+VLD	30.78	83.28	Valdosta	GA
