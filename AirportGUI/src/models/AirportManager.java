@@ -61,8 +61,8 @@ public class AirportManager {
 		}
 		
 		//dummy variables
-		Airport ap1 = new Airport(str1, 0.00, 0.00, "unknown", "unknown");
-		Airport ap2 = new Airport(str2, 0.00, 0.00, "unknown", "unknown");
+		Airport ap1 = airports.get(str1);
+		Airport ap2 = airports.get(str2);
 //		double lat1 = ap1.getLatitude();
 //		double lat2 = ap2.getLatitude();
 //		double long1 = ap1.getLongitude();
@@ -140,8 +140,11 @@ public class AirportManager {
 		return closest;
 	}
 	
-	public List<Airport> getAirportWithin(String code, double dist) {
-		Airport ap = new Airport(code);
+	public List<Airport> getAirportsWithin(String code, double dist) {
+		Airport ap = null;
+		if(containsAirport(code)) {
+			ap = airports.get(code);
+		}
 		List<Airport> apList = new ArrayList<>(airports.values());
 		apList.remove(ap);
 		List<Airport> apWithinDist = new ArrayList<>();
@@ -154,7 +157,7 @@ public class AirportManager {
 		return apWithinDist;
 	}
 	
-	public List<Airport> getAirportWithin(double WithinDist, double lat, double lon) {
+	public List<Airport> getAirportsWithin(double WithinDist, double lat, double lon) {
 		Map<String, Airport> phony = new HashMap<>(airports);
 		List<Airport> apList = new ArrayList<>(airports.values());
 		List<Airport> apWithinDist = new ArrayList<>();
@@ -173,11 +176,15 @@ public class AirportManager {
 		return null;
 	}
 	
-	public List<Airport> getAirportWithin(String code1, String code2, double dist) {
+	public List<Airport> getAirportsWithin(String code1, String code2, double dist) {
 		List<Airport> within = new ArrayList<>();
 		List<Airport> apList = new ArrayList<>(airports.values());
-		Airport ap1 = new Airport(code1);
-		Airport ap2 = new Airport(code2);
+		Airport ap1 = null;
+		Airport ap2 = null;
+		if(containsAirport(code1) && containsAirport(code2)) {
+			ap1 = airports.get(code1);
+			ap2 = airports.get(code2);
+		}
 		
 		for(Airport a : apList) {
 			if(a.equals(ap1) || a.equals(ap2)) {
@@ -186,13 +193,13 @@ public class AirportManager {
 			
 			if(getDistanceBetween(a, ap1) < dist && getDistanceBetween(a, ap2) < dist) {
 				within.add(a);
-			}
+			}	
 		}
 		//could have just called on one of your previous methods
 		return within;
 	}
 	
-	public List<Airport> getAirportByCity(String city) {
+	public List<Airport> getAirportsByCity(String city) {
 		List<Airport> sameCity = new ArrayList<>();
 		List<Airport> apList = new ArrayList<>(airports.values());
 		
@@ -207,7 +214,7 @@ public class AirportManager {
 	
 	public List<Airport> getAirportsByCityState(String city, String state){
 		List<Airport> sameCityState = new ArrayList<>();
-		List<Airport> sameCity = getAirportByCity(city);
+		List<Airport> sameCity = getAirportsByCity(city);
 		
 		for(Airport a : sameCity) {
 			if(a.getState().equals(state)) {
