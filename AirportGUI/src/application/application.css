@@ -1,1 +1,16 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+HBox {
+	/*affects spacing between items within the vbox */
+	-fx-spacing: 10px;
+	
+}
+
+VBox {
+	/*affects spacing between items within the vbox */
+	-fx-spacing: 5px;
+}
+
+GridPane {
+	-fx-hgap: 15px;
+	-fx-vgap: 20px; 
+}
