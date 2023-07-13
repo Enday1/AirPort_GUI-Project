@@ -16,7 +16,8 @@ public class Airport {
 	}
 	
 	protected Airport(String code) {
-		this(code, 0.00, 0.00, "city", "state");
+		//this(code, 0.00, 0.00, "city", "state"); not what was done by professor 
+		this.code = code;
 	}
 	
 	public boolean equals(Object o) {
