@@ -4,8 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Set;
-import java.util.Collection;
-import java.util.Collections;
+import java.util.Collection;  //for a collection
+import java.util.Collections; //for sort method
+//import java.util.Random;
 
 public class AirportManager {
 	private Map<String, Airport> airports = new HashMap<>();
@@ -76,7 +77,9 @@ public class AirportManager {
 	public double getDistanceBetween(Airport ap1, Airport ap2) {
 		//checks if contains or not. If not return -1
 		if(ap1==null || ap2==null) { 
-			return -1;
+			//return --;
+			return 0; //realized that I need a distance if going to use getDistanceBetween with the 
+					  //protected constructor object creation for airport.
 		}
 		
 		double lat1 = ap1.getLatitude();
@@ -104,13 +107,27 @@ public class AirportManager {
 	}
 	
 	public Airport getAirportClosestTo2(String code) {
-		Airport a1 = new Airport(code);
+		/*Random r = new Random();
+		double rangeMin = 0.00;
+		double rangeMax = 80.00;
+		double randomValue = rangeMin + (rangeMax - rangeMin) * r.nextDouble();
+		double lat = randomValue;
+		double lon = randomValue;
+		Airport a1 = new Airport(code, lat, lon, "unknown", "unknown");*/
+		Airport a1 = null;
+		
+		if(airports.containsKey(code)) {
+			 a1 = airports.get(code);
+		}
+		
+		
 		double closestDist = Double.MAX_VALUE;
 		Collection<Airport> ap = airports.values();
 		ArrayList<Airport> apAList = new ArrayList<>(ap);
 		apAList.remove(a1);
 		
-		Airport returnAirport = apAList.get(0);
+		//Airport returnAirport = apAList.get(0);
+		Airport returnAirport = null;
 		
 		for(Airport a : apAList) {
 			if(getDistanceBetween(a1,a) < closestDist) {
@@ -142,18 +159,22 @@ public class AirportManager {
 	
 	public List<Airport> getAirportsWithin(String code, double dist) {
 		Airport ap = null;
-		if(containsAirport(code)) {
-			ap = airports.get(code);
-		}
-		List<Airport> apList = new ArrayList<>(airports.values());
-		apList.remove(ap);
 		List<Airport> apWithinDist = new ArrayList<>();
 		
-		for(Airport a : apList) {
-			if(getDistanceBetween(ap,a) < dist) {
-				apWithinDist.add(a);
+		if(containsAirport(code)) {
+			ap = airports.get(code);
+			
+			List<Airport> apList = new ArrayList<>(airports.values());
+			apList.remove(ap);
+		
+		
+			for(Airport a : apList) {
+				if(getDistanceBetween(ap,a) < dist) {
+					apWithinDist.add(a);
+				}
 			}
 		}
+		
 		return apWithinDist;
 	}
 	
