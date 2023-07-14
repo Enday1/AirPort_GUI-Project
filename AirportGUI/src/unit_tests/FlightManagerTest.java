@@ -262,59 +262,6 @@ public class FlightManagerTest {
 		fm.addFlight(f5);
 		fm.addFlight(f6);
 		
-//		try {
-//			Scanner input = new Scanner(flightsMediumFileName);
-//			String code = "";
-//			String date = "";
-//			String originCode;
-//			String destinationCode;
-//			String costStr = "";
-//			int i = 0;
-//			int j = 0;
-//		
-//			
-//			while(input.hasNext()) {
-//				i++;
-				
-				//String token = input.nextLine();
-				//String[] split = token.split("\\s+");
-				/*code = input.next();
-				date = input.next();
-				originCode = input.next();
-				destinationCode = input.next();
-				costStr = input.next();*/
-				
-				//LocalDate ld = LocalDate.parse(date);
-				
-				/*double cost = Double.parseDouble(costStr);
-				Airport a1 = amFromAMC.getAirport(originCode);
-				Airport a2 = amFromAMC.getAirport(destinationCode);
-				
-				
-				Flight f = new Flight(code, date, a1, a2, cost);
-				fm.addFlight(f);*/
-				
-//			}
-//			String[] s = new String[i-2];
-//			
-//			while(input.hasNext()) {
-//				if i =
-//				s[i] = input.nextLine();
-//				j++;
-//			}
-//			
-//			code = 
-//			date =
-//			originCode = 
-//		    destinationCode = 
-//			costStr =
-//			
-//			input.close();
-//			
-//		}
-//		catch(IOException e) {
-//			e.printStackTrace();
-//		}
 		return fm;
 	}
 
