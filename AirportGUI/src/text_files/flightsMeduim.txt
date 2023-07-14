@@ -1,0 +1,30 @@
+Flight: 9865, Date: 2023-07-13
+From: SEM-Selma, AL
+To: ATL-Atlanta, GA
+Distance: 174 miles, Cost: $800.00
+
+Flight: 9876, Date: 2023-07-13
+From: MIA-MiamiIntl, FL
+To: TIX-Titusville, FL
+Distance: 189 miles, Cost: $750.00
+
+Flight: 1234, Date: 2023-07-13
+From: VLD-Valdosta, GA
+To: TCL-Tuscaloosa, AL
+Distance: 305 miles, Cost: $800.00
+
+Flight: 2587, Date: 2023-07-13
+From: MIA-MiamiIntl, FL
+To: AGR-AvonParkG, FL
+Distance: 175 miles, Cost: $750.00
+
+Flight: 5879, Date: 2023-07-13
+From: TIX-Titusville, FL
+To: SEM-Selma, AL
+Distance: 453 miles, Cost: $750.00
+
+Flight: 4429, Date: 2023-07-13
+From: VLD-Valdosta, GA
+To: OPF-Miami/Opa, FL
+Distance: 382 miles, Cost: $750.00
+
