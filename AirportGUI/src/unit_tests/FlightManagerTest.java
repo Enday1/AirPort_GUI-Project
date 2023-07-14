@@ -1,5 +1,5 @@
 package unit_tests;
-
+import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.time.LocalDate;
@@ -21,6 +21,9 @@ public class FlightManagerTest {
 	static final String path = "src/text_files/";
 	static final String airportsMediumFileName = path + "airportsMedium.txt";
 	static final File airportsMediumFile = new File(airportsMediumFileName);
+	
+	static final String flightsMediumFileName = path + "flightsMeduim.txt";
+	static final File flightsMediumFile = new File(flightsMediumFileName);
 
 	public static void main(String[] args) {
 		testAddFlight();
@@ -243,7 +246,7 @@ public class FlightManagerTest {
 	 * Creates a FlightManager with 6 flights
 	 * @return
 	 */
-	private static FlightManager createTestFlightManager() {
+	public static FlightManager createTestFlightManager() {
 		AirportManager am = getAirportManager();
 		FlightManager fm = new FlightManager(am);
 		Flight f1 = createTestFlight("1234", am.getAirport("VLD"), am.getAirport("TCL"), 800.00);
@@ -258,6 +261,60 @@ public class FlightManagerTest {
 		fm.addFlight(f4);
 		fm.addFlight(f5);
 		fm.addFlight(f6);
+		
+//		try {
+//			Scanner input = new Scanner(flightsMediumFileName);
+//			String code = "";
+//			String date = "";
+//			String originCode;
+//			String destinationCode;
+//			String costStr = "";
+//			int i = 0;
+//			int j = 0;
+//		
+//			
+//			while(input.hasNext()) {
+//				i++;
+				
+				//String token = input.nextLine();
+				//String[] split = token.split("\\s+");
+				/*code = input.next();
+				date = input.next();
+				originCode = input.next();
+				destinationCode = input.next();
+				costStr = input.next();*/
+				
+				//LocalDate ld = LocalDate.parse(date);
+				
+				/*double cost = Double.parseDouble(costStr);
+				Airport a1 = amFromAMC.getAirport(originCode);
+				Airport a2 = amFromAMC.getAirport(destinationCode);
+				
+				
+				Flight f = new Flight(code, date, a1, a2, cost);
+				fm.addFlight(f);*/
+				
+//			}
+//			String[] s = new String[i-2];
+//			
+//			while(input.hasNext()) {
+//				if i =
+//				s[i] = input.nextLine();
+//				j++;
+//			}
+//			
+//			code = 
+//			date =
+//			originCode = 
+//		    destinationCode = 
+//			costStr =
+//			
+//			input.close();
+//			
+//		}
+//		catch(IOException e) {
+//			e.printStackTrace();
+//		}
 		return fm;
 	}
 
@@ -270,7 +327,7 @@ public class FlightManagerTest {
 	 * @param cost
 	 * @return
 	 */
-	private static Flight createTestFlight(String num, Airport origin, Airport dest, double cost) {
+	public static Flight createTestFlight(String num, Airport origin, Airport dest, double cost) {
 		Flight f = new Flight(num, LocalDate.now(), origin, dest, cost);
 		return f;
 	}
